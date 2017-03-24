@@ -1,10 +1,10 @@
-#Telnet HoneyPot
+# Telnet HoneyPot
 
 Telnet HoneyPot is a very simple listening process on the tcp port 23
 This Python script trap login and password, and disconnect the session 
 
 
-##telnet_srv.py
+## telnet_srv.py
 
   You can start the process easly :
 
@@ -13,7 +13,7 @@ This Python script trap login and password, and disconnect the session
 	sudo ./telnet_srv.py > telnet_srv.log
 
 
-##telnet_srv_log2db.py
+## telnet_srv_log2db.py
 
   You can create database mysql with sql script :
 
@@ -25,7 +25,7 @@ This Python script trap login and password, and disconnect the session
 	./telnet_srv_log2db.py
 
 
-##www/HoneyStat.html
+## www/HoneyStat.html
 
   Simple statistics page 
 
