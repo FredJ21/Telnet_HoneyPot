@@ -20,7 +20,7 @@ This Python script trap login and password, and disconnect the session
 	mysql -u root -p < DB/honey_DB.sql
 
 
-  and, you can import datalog in databas :
+  and, you can import datalog in database :
 
 	./telnet_srv_log2db.py
 
