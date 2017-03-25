@@ -12,7 +12,7 @@
 		
 		<?php
 
-			$CONF = parse_ini_file("/home/conf.ini");
+			$CONF = parse_ini_file("/home/Telnet_HoneyPot/www/conf.ini");
 			
 			$username   = $CONF[LOGIN];
 			$password   = $CONF[PASS];
@@ -40,7 +40,7 @@
 			$DATE_LAST = $row[0];
 
 			# connexion by HOUR
-			$sql = "SELECT DATE_FORMAT(date,'%Y-%m-%d %H') as date, count(*) from telnet group by DATE_FORMAT(date, '%Y-%m-%d %H') order by date desc limit 72";
+			$sql = "SELECT DATE_FORMAT(date,'%Y-%m-%d %H') as date, count(*) from telnet group by DATE_FORMAT(date, '%Y-%m-%d %H') order by date desc limit 168";
 			$result = $conn->query($sql); 
 			$result_hour = array();
 			while($row = $result->fetch_array()) {  	array_push($result_hour, $row);	}
@@ -105,14 +105,14 @@
 						{
 							"id": "Title-1",
 							"size": 15,
-							"text": "Number of connections by HOUR"
+							"text": "Number of connections by HOUR (Last Week)"
 						}
 					],
 					"dataProvider": [
 		
 					   <?php	
 	
-						for ($a=count($result_hour)-1; $a>=0; $a--) {
+						for ($a=count($result_hour)-1; $a>=1; $a--) {		# the last value is not printed
 
 							print '{ "date": "'. $result_hour[$a][0] .'","column-1": '. $result_hour[$a][1] .' },';
 						}
@@ -168,7 +168,7 @@
 		
 					   <?php	
 	
-						for ($a=count($result_day)-1; $a>=0; $a--) {
+						for ($a=count($result_day)-1; $a>=1; $a--) {		# the last value is not printed
 
 							print '{ "date": "'. $result_day[$a][0] .'","column-1": '. $result_day[$a][1] .' },';
 						}
