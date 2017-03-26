@@ -1,6 +1,7 @@
 # Telnet HoneyPot
 
-Telnet HoneyPot is a very simple listening process on the tcp port 23
+Telnet HoneyPot is a very simple listening process on the tcp port 23.
+
 This Python script trap login and password, and disconnect the session 
 
 
@@ -10,6 +11,7 @@ This Python script trap login and password, and disconnect the session
 
 	sudo ./telnet_srv.py
    or
+	
 	sudo ./telnet_srv.py > telnet_srv.log
 
 
