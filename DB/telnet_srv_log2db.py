@@ -7,7 +7,7 @@ import mysql.connector
 from datetime import datetime
 
 
-FILE    = "telnet_srv.log"
+FILE    = "/home/Telnet_HoneyPot/telnet_srv.log"
 
 DB      = "honey"
 DB_USER = "honey_user"
