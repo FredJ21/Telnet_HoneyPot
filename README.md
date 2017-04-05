@@ -31,3 +31,11 @@ This Python script trap login and password, and disconnect the session
 
   Simple statistics page 
 
+
+## Example of my crontab :
+
+	/etc/cron.d/telnet_srv_cron
+
+	*/5 * * * *  root  /home/Telnet_HoneyPot/DB/telnet_srv_log2db.py >/dev/null 2>&1
+	0,30 * * * *  root  /home/Telnet_HoneyPot/start.sh >/dev/null 2>&1
+
