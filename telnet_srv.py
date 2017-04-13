@@ -28,7 +28,7 @@ class ClientThread(threading.Thread):
         self.clientsocket = clientsocket
         self.clientsocket.settimeout(TIMEOUT)
         self.Nb = Nb
-        print("[+] New thread for %s %s %d" % (self.ip, self.port, self.Nb))
+        #print("[+] New thread for %s %s %d" % (self.ip, self.port, self.Nb))
 
 
     def run(self): 
@@ -96,7 +96,7 @@ class ClientThread(threading.Thread):
             sys.stdout.flush()
             self.clientsocket.close()
 
-        print("[+] End thread pour %s %s %d" % (self.ip, self.port, self.Nb))
+        #print("[+] End thread pour %s %s %d" % (self.ip, self.port, self.Nb))
 
 
 
