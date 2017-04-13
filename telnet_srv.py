@@ -53,7 +53,6 @@ class ClientThread(threading.Thread):
             while True:
                 rep = self.clientsocket.recv(2048)
                 login += rep
-                print("%d - 1 - %d" % (self.Nb, a))
                 if login[-1:] == '\n':
                     break
                 if a > 200 :
@@ -119,7 +118,6 @@ while True:
     tcpsock.listen(10)
     (clientsocket, (ip, port)) = tcpsock.accept()
 
-#    print ("Nb = %d \n" % (Nb))
 
     newthread = ClientThread(ip, port, clientsocket, Nb)
     newthread.start()
