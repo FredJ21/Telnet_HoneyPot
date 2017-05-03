@@ -7,7 +7,7 @@ import sys
 import time
 
 PORT    = 23
-TIMEOUT = 21
+TIMEOUT = 10
 
 colR = '\033[1;31m' # Red
 colG = '\033[1;32m' # Green
@@ -34,13 +34,13 @@ class ClientThread(threading.Thread):
     def run(self): 
 
         # test the first sent data 
-        #self.clientsocket.settimeout(5)
+        self.clientsocket.settimeout(1)
         try:
             r = self.clientsocket.recv(2048)
         except socket.timeout:
             pass
 
-        #self.clientsocket.settimeout(5)
+        self.clientsocket.settimeout(TIMEOUT)
         try:
 
             login = ""
@@ -48,7 +48,7 @@ class ClientThread(threading.Thread):
 
             # ----------------------------------------------
             # login
-            self.clientsocket.send("login: ")
+            self.clientsocket.send("Login: ")
             a = 0
             while True:
                 rep = self.clientsocket.recv(2048)
@@ -59,13 +59,13 @@ class ClientThread(threading.Thread):
                     break
                 a += 1
                 time.sleep(0.01)
-                self.clientsocket.send(str(a))
+                #self.clientsocket.send(str(a))
             login = login.rstrip('\n\r')
 
 
             # ----------------------------------------------
             # password
-            self.clientsocket.send("password: ")
+            self.clientsocket.send("Password: ")
             a = 0
             while True:
                 rep = self.clientsocket.recv(2048)

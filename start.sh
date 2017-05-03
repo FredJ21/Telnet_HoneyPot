@@ -21,3 +21,4 @@ elif [ $CPU -gt '9000' ]; then
 	/home/Telnet_HoneyPot/telnet_srv.py >> /home/Telnet_HoneyPot/telnet_srv.log&
 fi
 
+echo "---------------------------------"
