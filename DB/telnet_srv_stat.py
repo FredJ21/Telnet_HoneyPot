@@ -44,7 +44,7 @@ result = cursor.fetchone()
 print "Nombre de connection en timeout : "+ colG + str(result[0]) + colD
 
 # -------------------------------------------------------------
-req = "select DATE_FORMAT(date,'%Y-%m-%d'), count(*) from telnet group by DATE_FORMAT(date, '%Y-%m-%d') order by date desc;"
+req = "select DATE_FORMAT(date,'%Y-%m-%d') as date2, count(*) from telnet group by date2 order by date2 desc limit 20;"
 cursor.execute(req) 
 print "Nombre de conection par JOUR :" 
 for (a) in cursor :
@@ -52,11 +52,12 @@ for (a) in cursor :
     print "\t"+ colB +  str(a[0]) + colD + " --> ",  colG +  str(a[1]) + colD
 
 # -------------------------------------------------------------
-req = "select date, count(*) from telnet group by DATE_FORMAT(date, '%Y-%m-%d %H') order by date desc limit 10 ;"
+req = "select DATE_FORMAT(date,'%Y-%m-%d %H') as date2, count(*) from telnet group by date2 order by date2 desc limit 10 ;"
 cursor.execute(req) 
 print "Nombre de conection par HEURE :" 
 for (a) in cursor :
-    print "\t"+ colB +  a[0].strftime('%Y-%m-%d %H:') + colD + " --> ",  colG +  str(a[1]) + colD
+    #print "\t"+ colB +  a[0].strftime('%Y-%m-%d %H:') + colD + " --> ",  colG +  str(a[1]) + colD
+    print "\t"+ colB +  str(a[0]) + colD + " --> ",  colG +  str(a[1]) + colD
 
 # -------------------------------------------------------------
 req = "select login, count(*) as nb from telnet where timeout=0 group by login order by nb desc limit 10;"
